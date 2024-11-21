@@ -16,7 +16,7 @@ export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
       <h3 style={{ color: "blue" }}>{post.title}</h3>
       <div>
         <button onClick={() => deleteMutation.mutate(post.id)}>Delete</button>{" "}
-        {deleteMutation.isPending && (
+        {/* {deleteMutation.isPending && (
           <p className="loading">Deleting the post....</p>
         )}
         {deleteMutation.isError && (
@@ -28,13 +28,13 @@ export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
           <p className="success">
             Successfully deleted the post (but not really).
           </p>
-        )}
+        )} */}
       </div>
       <div>
         <button onClick={() => updateTitlemutation.mutate(post.id)}>
           Update title
         </button>
-        {updateTitlemutation.isPending && (
+        {/* {updateTitlemutation.isPending && (
           <p className="loading">Updating the post....</p>
         )}
         {updateTitlemutation.isError && (
@@ -46,7 +46,7 @@ export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
           <p className="success">
             Successfully updated the post (but not really).
           </p>
-        )}
+        )} */}
         <p>{post.body}</p>
         <h4>Comments</h4>
         {data.map((comment) => (
