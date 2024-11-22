@@ -2,7 +2,7 @@ import { fetchComments } from "./api";
 import "./PostDetail.css";
 import { useQuery } from "@tanstack/react-query";
 
-export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
+export function PostDetail({ post, deleteMutation, updateTitleMutation }) {
   // replace with useQuery
   const { data, isError, isLoading, error } = useQuery({
     queryKey: ["comments", post.id], // when key changes, create a new query
@@ -11,12 +11,13 @@ export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
 
   if (isError) return <div>Error: {error.message}</div>;
   if (isLoading) return <div>Loading...</div>;
+  console.log({ deleteMutation });
   return (
     <>
       <h3 style={{ color: "blue" }}>{post.title}</h3>
       <div>
         <button onClick={() => deleteMutation.mutate(post.id)}>Delete</button>{" "}
-        {/* {deleteMutation.isPending && (
+        {deleteMutation.isPending && (
           <p className="loading">Deleting the post....</p>
         )}
         {deleteMutation.isError && (
@@ -28,25 +29,25 @@ export function PostDetail({ post, deleteMutation, updateTitlemutation }) {
           <p className="success">
             Successfully deleted the post (but not really).
           </p>
-        )} */}
+        )}
       </div>
       <div>
-        <button onClick={() => updateTitlemutation.mutate(post.id)}>
+        <button onClick={() => updateTitleMutation.mutate(post.id)}>
           Update title
         </button>
-        {/* {updateTitlemutation.isPending && (
+        {updateTitleMutation.isPending && (
           <p className="loading">Updating the post....</p>
         )}
-        {updateTitlemutation.isError && (
+        {updateTitleMutation.isError && (
           <p className="error">
-            Error updating the post: {updateTitlemutation.error.toString()}
+            Error updating the post: {updateTitleMutation.error.toString()}
           </p>
         )}
-        {updateTitlemutation.isSuccess && (
+        {updateTitleMutation.isSuccess && (
           <p className="success">
             Successfully updated the post (but not really).
           </p>
-        )} */}
+        )}
         <p>{post.body}</p>
         <h4>Comments</h4>
         {data.map((comment) => (
