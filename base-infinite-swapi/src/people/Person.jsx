@@ -1,4 +1,5 @@
 export function Person({ name, hairColor, eyeColor }) {
+  console.log({ name }, { hairColor }, { eyeColor });
   return (
     <li>
       {name}
