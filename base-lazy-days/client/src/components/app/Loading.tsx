@@ -1,8 +1,8 @@
 import { Spinner, Text } from "@chakra-ui/react";
-
+import { useIsFetching } from "@tanstack/react-query";
 export function Loading() {
   // will use React Query `useIsFetching` to determine whether or not to display
-  const isFetching = false; // for now, just don't display
+  const isFetching = useIsFetching(); // returns an integer of useQuery calls in the fetching state. If > 0, set to truthy
   const display = isFetching ? "inherit" : "none";
 
   return (

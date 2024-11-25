@@ -15,3 +15,7 @@ React Query Notes
     - query function encapsulated in custom hook
     - abstracts implementation from display layer
         - update hook if you change implementation and there is no need to update components
+- isLoading = isFetching PLUS no cached data
+- in a larger app - use a loading spinner whenever ANY query is in the process of fetching data
+    - useIsFetching tells us whether any queries are currently fetching
+        - SO -- no need to use isfetching for each custom hook / useQuery call. Instead, use useIsFetching
