@@ -47,7 +47,7 @@ export function InfiniteSpecies() {
       <InfiniteScroll
         loadMore={() => {
           if (!isFetching) {
-            fetchNextPage();
+            fetchNextPage(); //prevents double calls to the API
           }
         }}
         hasMore={hasNextPage}

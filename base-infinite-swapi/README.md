@@ -56,6 +56,18 @@ React Infinite Scroller Package
 - Component takes care of detecting when to load more
 - data in data.pages[x].results
 
+Bidirectional Scrolling
+- useful when starting in the middle
+- all "next" methods and properties have equivalent for "previous"
+
+Summary
+- React Query manages:
+    - pageParam for next page to be fetched
+        - getNextPageParam option
+        - could be from lastPage, or allPages
+    - hasNextPage - boolean indicatign whether pageParam is undefined
+- Component handles calling fetchNextPage
+    - use hasNextPage value to determine when to stop
 
 https://swapi-node.vercel.app
 https://swapi.dev
